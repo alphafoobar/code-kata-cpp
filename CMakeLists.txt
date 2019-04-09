@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.12)
 project(code_kata_cpp)
 
 set(CMAKE_CXX_STANDARD 17)
