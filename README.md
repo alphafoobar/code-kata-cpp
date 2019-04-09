@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/alphafoobar/code-kata-cpp.svg?branch=master)](https://travis-ci.com/alphafoobar/code-kata-cpp) [![codecov](https://codecov.io/gh/alphafoobar/code-kata-cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/alphafoobar/code-kata-cpp)
+
 # C++ Code Kata
 
 * Google tests imported into test directory as per instructions
