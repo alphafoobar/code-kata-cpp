@@ -1,6 +1,7 @@
 language: cpp
 compiler: clang
 os: linux
+dist: xenial
 
 cache: # see https://docs.travis-ci.com/user/caching/
   - directories:
@@ -10,7 +11,8 @@ addons:
   apt:
     packages: lcov
 
-script: ./build.sh
+script:
+  - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .
 
 after_success:
   # Create lcov report
