@@ -9,7 +9,7 @@ add_subdirectory(googletest-1.8.1)
 add_executable(runCodeKataTests
         kata02/binary_search_test.cpp test_main.cpp)
 
-target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main)
-target_link_libraries(runCodeKataTests cpp)
+target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main --coverage)
+target_link_libraries(runCodeKataTests cpp --coverage)
 
 gtest_discover_tests(runCodeKataTests "" AUTO)
