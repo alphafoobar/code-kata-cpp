@@ -12,8 +12,7 @@ addons:
     packages: lcov
 
 script:
-  - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug .
-  - cmake --build . --config Debug -- -j $(nproc)
+  - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON --build . --config Debug -- -j $(nproc)
   - ctest -j $(nproc) --output-on-failure
 
 after_success:
