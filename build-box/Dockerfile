@@ -37,10 +37,17 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 60
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 60
 RUN update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-5 60
 
+# Update clang
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+RUN apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-7 main"
+RUN apt-get update
+RUN apt-get install -qq -y clang-7
+
 # Install LCOV
-RUN git clone https://github.com/linux-test-project/lcov.git
-RUN make -C lcov install
-RUN apt-get install -y ruby
+#RUN git clone https://github.com/linux-test-project/lcov.git
+#RUN make -C lcov install
+RUN apt-get install -qq -y lcov
+RUN apt-get install -qq -y ruby
 RUN gem install coveralls-lcov
 
 # Install OpenMP for LLVM
@@ -66,10 +73,6 @@ RUN \
   ldconfig && \
   cd ../.. && \
   cmake --version
-
-# Install Qt 5
-RUN apt-get install -qq qt5-default
-ENV CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/opt/qt5
 
 # Clean working directory
 RUN rm -rf openmp
