@@ -1,0 +1,7 @@
+Build as
+
+`docker build . -f Dockerfile -t my_clang`
+
+Then run with
+
+`docker run  -v  $(pwd)/..:/usr/src/ -it my_clang`
