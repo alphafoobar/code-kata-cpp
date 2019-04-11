@@ -7,10 +7,14 @@ cache: # see https://docs.travis-ci.com/user/caching/
   - directories:
       - $HOME/.cache
 
+before_install:
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+
 addons:
   apt:
     sources:
       - ppa:ubuntu-toolchain-r/test
+    update: true
     packages:
       - gcc-5
       - g++-5
