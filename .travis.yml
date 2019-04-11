@@ -9,8 +9,12 @@ cache: # see https://docs.travis-ci.com/user/caching/
 
 addons:
   apt:
+    sources:
+      - ppa:ubuntu-toolchain-r/test
     packages:
-      - gcov
+      - gcc-5
+      - g++-5
+      - gcov-5
       - lcov
 
 script:
