@@ -14,7 +14,7 @@ addons:
     packages:
       - gcc-5
       - g++-5
-      - gcov-5
+      - gcov
       - lcov
 
 script:
@@ -22,9 +22,9 @@ script:
 
 after_success:
   # Create lcov report
-  #  - lcov --capture --directory build --output-file coverage.info --debug
-  #  - lcov --remove coverage.info '/usr/*' --output-file coverage.info --debug
-  #  - lcov --remove coverage.info '*/test/*' --output-file coverage.info --debug
-  #  - lcov --list coverage.info --debug
+  - lcov --capture --directory build --output-file coverage.info --debug
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info --debug
+  - lcov --remove coverage.info '*/test/*' --output-file coverage.info --debug
+  - lcov --list coverage.info --debug
   # Uploading report to CodeCov
   - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
