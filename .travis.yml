@@ -12,14 +12,13 @@ addons:
     packages: lcov
 
 script:
-  - cmake -DCODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON
-  - cmake --build . --config Debug -- -j $(nproc)
-  - ctest -j $(nproc) --output-on-failure
+  - ./build.sh
 
 after_success:
   # Create lcov report
   - lcov --capture --directory . --output-file coverage.info
-  - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter system-files
-  - lcov --list coverage.info # debug info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info
+  - lcov --remove coverage.info '*/test/*' --output-file coverage.info
+  - lcov --list coverage.info
   # Uploading report to CodeCov
   - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
