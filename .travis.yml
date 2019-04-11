@@ -9,16 +9,17 @@ cache: # see https://docs.travis-ci.com/user/caching/
 
 addons:
   apt:
-    packages: lcov
+    packages:
+      - lcov
 
 script:
   - ./build.sh
 
 after_success:
   # Create lcov report
-  - lcov --capture --directory . --output-file coverage.info
-  - lcov --remove coverage.info '/usr/*' --output-file coverage.info
-  - lcov --remove coverage.info '*/test/*' --output-file coverage.info
-  - lcov --list coverage.info
+  - lcov --capture --directory build --output-file coverage.info --debug
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info --debug
+  - lcov --remove coverage.info '*/test/*' --output-file coverage.info --debug
+  - lcov --list coverage.info --debug
   # Uploading report to CodeCov
   - bash <(curl -s https://codecov.io/bash) -f coverage.info || echo "Codecov did not collect coverage reports"
