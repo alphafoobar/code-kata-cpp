@@ -9,9 +9,9 @@ TEST(Kata04_ReadFile, HandlesUnknownFile) {
 }
 
 TEST(Kata04_ReadFile, HandlesWeatherFile) {
-    EXPECT_LT(0, to_data("test/resources/weather.dat").size());
+    EXPECT_LT(0, to_data("../../test/resources/weather.dat").size());
 }
 
 TEST(Kata04_ReadFile, HandlesFootballFile) {
-    EXPECT_LT(0, to_data("test/resources/football.dat").size());
+    EXPECT_LT(0, to_data("../../test/resources/football.dat").size());
 }
