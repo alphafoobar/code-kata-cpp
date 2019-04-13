@@ -5,7 +5,7 @@
 * These katas are from [CodeKata](http://codekata.com/), as a starting point.
 * This repository forms part of a collection of code kata in different languages.
 
-This project is built in JetBrains Clang and using Travis-CI.
+This project is built in JetBrains CLion and using Travis-CI.
 
 ## Dependency management
 
