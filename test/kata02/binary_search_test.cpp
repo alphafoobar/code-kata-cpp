@@ -1,4 +1,4 @@
-#include<gtest/gtest.h>
+#include <gtest/gtest.h>
 
 #include "../../src/kata02/binary_search.h"
 

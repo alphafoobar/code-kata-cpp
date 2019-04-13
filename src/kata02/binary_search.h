@@ -1,6 +1,6 @@
-#ifndef CPP_LIBRARY_H
-#define CPP_LIBRARY_H
+#ifndef CODE_KATA_CPP_BINARY_SEARCH_H
+#define CODE_KATA_CPP_BINARY_SEARCH_H
 
 int chop(int key, int array[], int length);
 
-#endif
+#endif //CODE_KATA_CPP_BINARY_SEARCH_H
