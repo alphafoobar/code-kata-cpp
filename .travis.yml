@@ -4,7 +4,7 @@ sudo: false
 compiler: gcc
 os: linux
 
-env: COMPILER=g++-6 CODE_COVERAGE=true CMAKE_BUILD_TYPE=Debug
+env: COMPILER=g++ CODE_COVERAGE=true CMAKE_BUILD_TYPE=Debug
 
 cache: # see https://docs.travis-ci.com/user/caching/
   - directories:
@@ -17,10 +17,6 @@ addons:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq gcc-6 g++-6
-  - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 80
-  - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 80
-  - sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-6 80
   - sudo apt-get install -qq -y lcov
   - sudo apt-get install -qq -y ruby
   - sudo gem install coveralls-lcov
@@ -39,7 +35,7 @@ script:
 
 after_success:
   # Create lcov report
-  - lcov --capture --directory . --output-file coverage.info --gcov-tool gcov-6
+  - lcov --capture --directory . --output-file coverage.info --gcov-tool gcov-5
   - lcov --remove coverage.info '/usr/*' 'test/*' --output-file coverage.info
   - lcov --list coverage.info
   # Uploading report to CodeCov
