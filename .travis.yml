@@ -4,7 +4,7 @@ sudo: false
 compiler: gcc
 os: linux
 
-env: COMPILER=g++ CODE_COVERAGE=true CMAKE_BUILD_TYPE=Debug
+env: COMPILER=g++ CODE_COVERAGE=true CMAKE_BUILD_TYPE=Debug BUILD_DIRECTORY=cmake-build-debug
 
 cache: # see https://docs.travis-ci.com/user/caching/
   - directories:
@@ -29,13 +29,14 @@ before_script:
   - gcov --version
 
 script:
-  - cmake -DCMAKE_CXX_COMPILER=${CXX} -DCMAKE_BUILD_TYPE=Debug -DARCH=x86 -DCODE_COVERAGE=true -DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage --coverage" . || exit 1
-  - cmake --build cmake-build-debug -- -j2 || exit 1
+  - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY}
+  - cmake -DCMAKE_CXX_COMPILER=${CXX} -DCMAKE_BUILD_TYPE=Debug -DARCH=x86 -DCODE_COVERAGE=true -DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage --coverage" .. || exit 1
+  - cmake --build . -- -j2 || exit 1
   - ctest -j $(nproc) --output-on-failure || exit 1
 
 after_success:
   # Create lcov report
-  - lcov --capture --directory cmake-build-debug --output-file coverage.info --gcov-tool gcov-5
+  - lcov --capture --directory ${BUILD_DIRECTORY} --output-file coverage.info --gcov-tool gcov-5
   - lcov --remove coverage.info '/usr/*' 'test/*' --output-file coverage.info
   - lcov --list coverage.info
   # Uploading report to CodeCov
