@@ -26,7 +26,7 @@ string strip_trailing_asterisk(const string &s) {
 optional<int> WeatherData::anInt(const string &day) {
     const string new_day = strip_trailing_asterisk(day);
     if (is_number(new_day)) {
-        return optional<int>{stoi(new_day)};
+        return stoi(new_day);
     }
     return {}; // Empty optional.
 }
@@ -37,7 +37,7 @@ optional<WeatherData> WeatherData::anOptional(const string &day, const string &m
     auto max_optional = anInt(max);
 
     if (day_optional.has_value() && min_optional.has_value() && max_optional.has_value()) {
-        return optional<WeatherData>{{day_optional.value(), min_optional.value(), max_optional.value()}};
+        return {{day_optional.value(), min_optional.value(), max_optional.value()}};
     }
     return {}; // Empty optional.
 }
