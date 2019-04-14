@@ -7,8 +7,10 @@ include_directories(
 add_subdirectory(googletest-1.8.1)
 
 add_executable(runCodeKataTests
+        test_main.cpp
+        kata02/binary_search_test.cpp
         kata04/read_file_test.cpp
-        kata02/binary_search_test.cpp test_main.cpp)
+        kata04/weather_data_test.cpp)
 
 target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main --coverage)
 target_link_libraries(runCodeKataTests cpp --coverage)
