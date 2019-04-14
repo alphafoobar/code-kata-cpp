@@ -13,4 +13,4 @@ add_executable(runCodeKataTests
 target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main --coverage)
 target_link_libraries(runCodeKataTests cpp --coverage)
 
-gtest_discover_tests(runCodeKataTests "" AUTO)
+gtest_discover_tests(runCodeKataTests)

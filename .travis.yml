@@ -30,12 +30,12 @@ before_script:
 
 script:
   - cmake -DCMAKE_CXX_COMPILER=${CXX} -DCMAKE_BUILD_TYPE=Debug -DARCH=x86 -DCODE_COVERAGE=true -DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage --coverage" . || exit 1
-  - cmake --build . -- -j2 || exit 1
+  - cmake --build cmake-build-debug -- -j2 || exit 1
   - ctest -j $(nproc) --output-on-failure || exit 1
 
 after_success:
   # Create lcov report
-  - lcov --capture --directory . --output-file coverage.info --gcov-tool gcov-5
+  - lcov --capture --directory cmake-build-debug --output-file coverage.info --gcov-tool gcov-5
   - lcov --remove coverage.info '/usr/*' 'test/*' --output-file coverage.info
   - lcov --list coverage.info
   # Uploading report to CodeCov
