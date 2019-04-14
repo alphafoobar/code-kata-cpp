@@ -2,8 +2,6 @@
 
 #include "read_file.h"
 
-using namespace std;
-
 vector<string> to_data(string filename) {
     ifstream in_file(filename);
     vector<string> str_vector = {};
