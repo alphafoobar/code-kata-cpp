@@ -35,8 +35,8 @@ script:
   - ctest -j $(nproc) --output-on-failure || exit 1
 
 after_success:
-  # Create lcov report
-  - lcov --capture --directory ${BUILD_DIRECTORY} --output-file coverage.info --gcov-tool gcov-5
+  # Create lcov report (assumes are we still in the build directory) ${TRAVIS_BUILD_DIR}/${BUILD_DIRECTORY}
+  - lcov --capture --directory . --output-file coverage.info --gcov-tool gcov-5
   - lcov --remove coverage.info '/usr/*' 'test/*' --output-file coverage.info
   - lcov --list coverage.info
   # Uploading report to CodeCov
