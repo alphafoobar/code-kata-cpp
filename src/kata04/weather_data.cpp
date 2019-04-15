@@ -46,7 +46,7 @@ optional<WeatherData> WeatherData::anOptional(const string &day, const string &m
  * Static builder for weather data. Builds an optional if valid data included in the input string.
  */
 optional<WeatherData> WeatherData::newWeatherData(const string data) {
-    stringstream ss(data);
+    stringstream ss{data};
     string day, min, max;
     ss >> day >> min >> max;
 
