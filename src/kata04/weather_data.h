@@ -4,9 +4,11 @@
 #include <string>
 #include <optional>
 
+#include "data.h"
+
 using namespace std;
 
-class WeatherData {
+class WeatherData : public Data {
 private:
     const int day;
     const int min;
@@ -25,8 +27,6 @@ public:
     static optional<WeatherData> newWeatherData(const string &data);
 
     static optional<WeatherData> anOptional(const string &day, const string &min, const string &max);
-
-
 };
 
 #endif //CODE_KATA_CPP_WEATHER_DATA_H
