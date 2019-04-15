@@ -12,16 +12,21 @@ private:
     const int min;
     const int max;
 
-    WeatherData(int day, int min, int max);
+    WeatherData(int day, int min, int max) :
+            day(day), min(min), max(max) {}
 
     static optional<int> anInt(const string &day);
 
 public:
+    string label();
+
     int difference();
 
-    static optional<WeatherData> newWeatherData(string data);
+    static optional<WeatherData> newWeatherData(const string &data);
 
     static optional<WeatherData> anOptional(const string &day, const string &min, const string &max);
+
+
 };
 
 #endif //CODE_KATA_CPP_WEATHER_DATA_H

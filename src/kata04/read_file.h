@@ -6,6 +6,6 @@
 
 using namespace std;
 
-vector<string> to_data(string filename);
+vector<string> to_data(const string &filename);
 
 #endif //CODE_KATA_CPP_READ_FILE_H
