@@ -2,7 +2,7 @@
 
 #include "../../src/kata04/read_file.h"
 
-vector<string> EMPTY_VECTOR = {};
+std::vector<std::string> EMPTY_VECTOR = {};
 
 TEST(Kata04_ReadFile, HandlesUnknownFile) {
     EXPECT_EQ(EMPTY_VECTOR, to_data("unknown file"));

@@ -10,7 +10,9 @@ add_executable(runCodeKataTests
         test_main.cpp
         kata02/binary_search_test.cpp
         kata04/read_file_test.cpp
-        kata04/weather_data_test.cpp kata04/weather_data_munger_test.cpp)
+        kata04/weather_data_test.cpp
+        kata04/weather_data_munger_test.cpp
+        )
 
 target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main --coverage)
 target_link_libraries(runCodeKataTests cpp --coverage)

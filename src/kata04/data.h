@@ -5,8 +5,6 @@
 
 #include "data.h"
 
-using namespace std;
-
 template<class T>
 class Data {
 

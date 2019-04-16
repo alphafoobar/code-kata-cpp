@@ -1,12 +1,11 @@
 #ifndef CODE_KATA_CPP_WEATHER_DATA_H
 #define CODE_KATA_CPP_WEATHER_DATA_H
 
+#include <sstream>
 #include <string>
 #include <optional>
 
 #include "data.h"
-
-using namespace std;
 
 class WeatherData : public Data<int> {
 private:
@@ -17,16 +16,17 @@ private:
     WeatherData(int day, int min, int max) :
             day(day), min(min), max(max) {}
 
-    static optional<int> anInt(const string &day);
+    static std::optional<int> anInt(const std::string &day);
 
 public:
-    int label() const;
+    int label() const override;
 
-    int difference() const;
+    int difference() const override;
 
-    static optional<WeatherData> newWeatherData(const string &data);
+    static std::optional<WeatherData> newWeatherData(const std::string &data);
 
-    static optional<WeatherData> anOptional(const string &day, const string &min, const string &max);
+    static std::optional<WeatherData>
+    anOptional(const std::string &day, const std::string &min, const std::string &max);
 };
 
 #endif //CODE_KATA_CPP_WEATHER_DATA_H

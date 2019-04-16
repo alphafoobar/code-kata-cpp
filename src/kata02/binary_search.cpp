@@ -1,6 +1,3 @@
-
-#include <cmath>
-
 #include "binary_search.h"
 
 int calculateMid(int offset, int length, int remaining) {

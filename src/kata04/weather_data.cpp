@@ -1,5 +1,3 @@
-#include <sstream>
-
 #include "weather_data.h"
 
 int WeatherData::label() const {
@@ -10,13 +8,13 @@ int WeatherData::difference() const {
     return abs(min - max);
 }
 
-bool is_number(const string &s) {
+bool is_number(const std::string &s) {
     std::string::const_iterator it = s.begin();
     while (it != s.end() && std::isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
 
-string strip_trailing_asterisk(const string &s) {
+std::string strip_trailing_asterisk(const std::string &s) {
     const unsigned long new_length = s.size() - 1;
     if (new_length > 0 && new_length < s.size() && s.at(new_length) == '*') {
         return s.substr(0, new_length);
@@ -24,15 +22,16 @@ string strip_trailing_asterisk(const string &s) {
     return s;
 }
 
-optional<int> WeatherData::anInt(const string &day) {
-    const string new_day = strip_trailing_asterisk(day);
+std::optional<int> WeatherData::anInt(const std::string &day) {
+    const std::string new_day = strip_trailing_asterisk(day);
     if (is_number(new_day)) {
         return stoi(new_day);
     }
     return {}; // Empty optional.
 }
 
-optional<WeatherData> WeatherData::anOptional(const string &day, const string &min, const string &max) {
+std::optional<WeatherData>
+WeatherData::anOptional(const std::string &day, const std::string &min, const std::string &max) {
     auto day_optional = anInt(day);
     auto min_optional = anInt(min);
     auto max_optional = anInt(max);
@@ -46,9 +45,9 @@ optional<WeatherData> WeatherData::anOptional(const string &day, const string &m
 /**
  * Static builder for weather data. Builds an optional if valid data included in the input string.
  */
-optional<WeatherData> WeatherData::newWeatherData(const string &data) {
-    stringstream ss{data};
-    string day, min, max;
+std::optional<WeatherData> WeatherData::newWeatherData(const std::string &data) {
+    std::stringstream ss{data};
+    std::string day, min, max;
     ss >> day >> min >> max;
 
     return anOptional(day, min, max);
