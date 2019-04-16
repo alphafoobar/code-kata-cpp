@@ -7,13 +7,13 @@
 
 using namespace std;
 
-
+template<class T>
 class Data {
 
 public:
-    virtual string label() = 0;
+    virtual T label() const = 0;
 
-    virtual int difference() = 0;
+    virtual int difference() const = 0;
 };
 
 

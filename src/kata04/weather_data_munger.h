@@ -6,16 +6,15 @@
 #include <vector>
 
 #include "weather_data.h"
+#include "munger.h"
 #include "read_file.h"
 
 using namespace std;
 
-class WeatherDataMunger {
+class WeatherDataMunger : public Munger<WeatherData> {
 
 private:
-    vector<WeatherData> data;
-
-    WeatherDataMunger(vector<WeatherData> data) : data(move(data)) {}
+    explicit WeatherDataMunger(vector<WeatherData> &data) : Munger{data} {}
 
 public:
     optional<WeatherData> smallestDifference();
@@ -31,7 +30,7 @@ public:
             }
         }
 
-        return weather_vector;
+        return WeatherDataMunger{weather_vector};
     }
 };
 

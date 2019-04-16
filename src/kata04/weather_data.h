@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class WeatherData : public Data {
+class WeatherData : public Data<int> {
 private:
     const int day;
     const int min;
@@ -20,9 +20,9 @@ private:
     static optional<int> anInt(const string &day);
 
 public:
-    string label();
+    int label() const;
 
-    int difference();
+    int difference() const;
 
     static optional<WeatherData> newWeatherData(const string &data);
 

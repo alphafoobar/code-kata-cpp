@@ -2,11 +2,11 @@
 
 #include "weather_data.h"
 
-string WeatherData::label() {
-    return to_string(day);
+int WeatherData::label() const {
+    return day;
 }
 
-int WeatherData::difference() {
+int WeatherData::difference() const {
     return abs(min - max);
 }
 
