@@ -8,11 +8,11 @@ int WeatherData::difference() const {
     return abs(min - max);
 }
 
-bool is_number(const std::string &s) {
-    std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
-}
+//bool is_number(const std::string &s) {
+//    std::string::const_iterator it = s.begin();
+//    while (it != s.end() && std::isdigit(*it)) ++it;
+//    return !s.empty() && it == s.end();
+//}
 
 std::string strip_trailing_asterisk(const std::string &s) {
     const unsigned long new_length = s.size() - 1;
@@ -31,7 +31,7 @@ std::optional<int> WeatherData::anInt(const std::string &day) {
 }
 
 std::optional<WeatherData>
-WeatherData::anOptional(const std::string &day, const std::string &min, const std::string &max) {
+WeatherData::anOptionalWeather(const std::string &day, const std::string &min, const std::string &max) {
     auto day_optional = anInt(day);
     auto min_optional = anInt(min);
     auto max_optional = anInt(max);
@@ -50,5 +50,5 @@ std::optional<WeatherData> WeatherData::newWeatherData(const std::string &data) 
     std::string day, min, max;
     ss >> day >> min >> max;
 
-    return anOptional(day, min, max);
+    return anOptionalWeather(day, min, max);
 }
