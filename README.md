@@ -25,3 +25,5 @@ cause linker errors.
    * https://github.com/google/googletest/blob/release-1.8.1/googletest/docs/primer.md
 
 ## Useful links
+
+1. [C++ reference wiki](https://en.cppreference.com/w/cpp)
