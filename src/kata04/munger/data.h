@@ -4,7 +4,7 @@
 #include <string>
 
 #include "data.h"
-#include "strings.h"
+#include "../strings.h"
 
 template<class T>
 class Data {

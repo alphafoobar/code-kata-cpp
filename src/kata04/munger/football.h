@@ -6,7 +6,7 @@
 #include <optional>
 
 #include "data.h"
-#include "strings.h"
+#include "../strings.h"
 
 class Football : public Data<std::string> {
 private:
@@ -14,8 +14,7 @@ private:
     const int points_for;
     const int points_against;
 
-    Football(const std::string &name, int points_for, int points_against) :
-            name(name), points_for(points_for), points_against(points_against) {}
+    Football(const std::string &name, int points_for, int points_against);
 
     static std::optional<int> anInt(const std::string &string);
 

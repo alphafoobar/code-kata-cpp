@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../../src/kata04/weather_data.h"
+#include "../../../src/kata04/munger/weather_data.h"
 
 TEST(Kata04_WeatherData, HandlesAsterixData) {
     std::optional<WeatherData> weatherData = WeatherData::newWeatherData(

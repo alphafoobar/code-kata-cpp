@@ -1,13 +1,9 @@
 #include "weather_data_munger.h"
 
-std::optional<WeatherData> WeatherDataMunger::smallestDifference() {
-    std::optional<WeatherData> smallestData;
-    for (const WeatherData &weatherData : data) {
-        if (!smallestData.has_value() || weatherData.difference() < smallestData.value().difference()) {
-            smallestData.emplace(weatherData);
-        }
-    }
-    return smallestData;
+WeatherDataMunger::WeatherDataMunger(const std::vector<WeatherData> &data) : Munger{data} {}
+
+WeatherDataMunger WeatherDataMunger::newWeatherDataMunger(const std::vector<WeatherData> &data) {
+    return WeatherDataMunger{data};
 }
 
 WeatherDataMunger read_weather_file(const std::string &filename) {

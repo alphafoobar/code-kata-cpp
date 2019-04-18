@@ -1,5 +1,8 @@
 #include "football.h"
 
+Football::Football(const std::string &name, int points_for, int points_against) :
+        name(name), points_for(points_for), points_against(points_against) {}
+
 std::string Football::label() const {
     return name;
 }

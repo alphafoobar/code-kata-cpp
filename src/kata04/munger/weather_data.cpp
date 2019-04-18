@@ -1,5 +1,8 @@
 #include "weather_data.h"
 
+WeatherData::WeatherData(int day, int min, int max) :
+        day(day), min(min), max(max) {}
+
 int WeatherData::label() const {
     return day;
 }
@@ -7,12 +10,6 @@ int WeatherData::label() const {
 int WeatherData::difference() const {
     return abs(min - max);
 }
-
-//bool is_number(const std::string &s) {
-//    std::string::const_iterator it = s.begin();
-//    while (it != s.end() && std::isdigit(*it)) ++it;
-//    return !s.empty() && it == s.end();
-//}
 
 std::string strip_trailing_asterisk(const std::string &s) {
     const unsigned long new_length = s.size() - 1;

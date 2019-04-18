@@ -6,7 +6,7 @@
 #include <optional>
 
 #include "data.h"
-#include "strings.h"
+#include "../strings.h"
 
 class WeatherData : public Data<int> {
 private:
@@ -14,8 +14,7 @@ private:
     const int min;
     const int max;
 
-    WeatherData(int day, int min, int max) :
-            day(day), min(min), max(max) {}
+    WeatherData(int day, int min, int max);
 
     static std::optional<int> anInt(const std::string &day);
 

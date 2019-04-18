@@ -2,20 +2,16 @@
 #define CODE_KATA_CPP_WEATHER_DATA_MUNGER_H
 
 #include "munger.h"
-#include "read_file.h" // #to_data(string filename)
+#include "../read_file.h" // #to_data(string filename)
 #include "weather_data.h"
 
 class WeatherDataMunger : public Munger<WeatherData> {
 
 private:
-    explicit WeatherDataMunger(std::vector<WeatherData> &data) : Munger{data} {}
+    explicit WeatherDataMunger(const std::vector<WeatherData> &data);
 
 public:
-    std::optional<WeatherData> smallestDifference() override;
-
-    static WeatherDataMunger newWeatherDataMunger(std::vector<WeatherData> &data) {
-        return WeatherDataMunger{data};
-    }
+    static WeatherDataMunger newWeatherDataMunger(const std::vector<WeatherData> &data);
 };
 
 WeatherDataMunger read_weather_file(const std::string &filename);
