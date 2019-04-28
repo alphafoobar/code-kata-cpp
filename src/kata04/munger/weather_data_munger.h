@@ -2,7 +2,7 @@
 #define CODE_KATA_CPP_WEATHER_DATA_MUNGER_H
 
 #include "munger.h"
-#include "../read_file.h" // #to_data(string filename)
+#include "../../file/read_file.h" // #to_data(string filename)
 #include "weather_data.h"
 
 class WeatherDataMunger : public Munger<WeatherData> {

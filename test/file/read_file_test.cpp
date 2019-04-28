@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../../src/kata04/read_file.h"
+#include "../../src/file/read_file.h"
 
 std::vector<std::string> EMPTY_VECTOR = {};
 

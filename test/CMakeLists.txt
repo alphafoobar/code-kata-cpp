@@ -9,11 +9,12 @@ add_subdirectory(googletest-1.8.1)
 add_executable(runCodeKataTests
         test_main.cpp
         kata02/binary_search_test.cpp
-        kata04/read_file_test.cpp
+        file/read_file_test.cpp
         kata04/munger/weather_data_test.cpp
         kata04/munger/weather_data_munger_test.cpp
         kata04/munger/football_test.cpp
         kata04/munger/football_munger_test.cpp
+        kata05/dictionary_bloom_filter_test.cpp
         )
 
 target_link_libraries(runCodeKataTests gtest gtest_main gmock gmock_main --coverage)
