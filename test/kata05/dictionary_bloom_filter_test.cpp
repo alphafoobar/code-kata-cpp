@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../../../src/kata05/dictionary.h"
+#include "../../src/kata05/Dictionary.h"
 
 TEST(Kata05_Dictionary, ReadDictionary) {
     Dictionary dictionary = Dictionary::read_dictionary_file("../../test/resources/wordlist.txt");
