@@ -33,7 +33,7 @@ before_script:
   - gcov --version
 
 script:
-  - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY}
+  - mkdir -p ${BUILD_DIRECTORY} && cd ${BUILD_DIRECTORY} || exit 1
   - cmake -DCMAKE_CXX_COMPILER=${CXX} -DCMAKE_BUILD_TYPE=Debug -DARCH=x86 -DCODE_COVERAGE=true -DCMAKE_CXX_FLAGS="-g -O0 -fprofile-arcs -ftest-coverage --coverage" .. || exit 1
   - cmake --build . -- -j2 || exit 1
   - ctest -j $(nproc) --output-on-failure || exit 1
