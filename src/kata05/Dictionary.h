@@ -2,14 +2,14 @@
 #define CODE_KATA_CPP_DICTIONARY_H
 
 #ifndef BLOOM_DICTIONARY_SIZE
-#define BLOOM_DICTIONARY_SIZE 10007
+#define BLOOM_DICTIONARY_SIZE 552523
 #endif //BLOOM_DICTIONARY_SIZE
 
 #include <vector>
 #include <string>
 
 class Dictionary {
-    bool filter[BLOOM_DICTIONARY_SIZE];
+    bool filter[BLOOM_DICTIONARY_SIZE]{};
 
     explicit Dictionary();
 
