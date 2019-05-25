@@ -3,7 +3,6 @@
 
 #include <string>
 
-#include "data.h"
 #include "../strings.h"
 
 template<class T>

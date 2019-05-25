@@ -1,5 +1,5 @@
-#ifndef CODE_KATA_CPP_FOOTBALL_H
-#define CODE_KATA_CPP_FOOTBALL_H
+#ifndef CODE_KATA_CPP_FOOTBALL_DATA_H
+#define CODE_KATA_CPP_FOOTBALL_DATA_H
 
 #include <sstream>
 #include <string>
@@ -26,7 +26,7 @@ public:
     static std::optional<Football> newFootball(const std::string &data);
 
     static std::optional<Football>
-    anOptionalFootball(const std::string &name, const std::string &min, const std::string &points_against);
+    anOptionalFootball(const std::string &name, const std::string &points_for, const std::string &points_against);
 };
 
-#endif //CODE_KATA_CPP_FOOTBALL_H
+#endif //CODE_KATA_CPP_FOOTBALL_DATA_H

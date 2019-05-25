@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../../../src/kata04/munger/football.h"
+#include "../../../src/kata04/munger/football_data.h"
 
 TEST(Kata04_Football, ReadTeamName) {
     std::optional<Football> football = Football::newFootball(

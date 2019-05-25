@@ -3,7 +3,7 @@
 
 
 #include "munger.h"
-#include "football.h"
+#include "football_data.h"
 #include "../../file/read_file.h" // #to_data(string filename)
 
 class FootballMunger : public Munger<Football> {
