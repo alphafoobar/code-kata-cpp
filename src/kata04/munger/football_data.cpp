@@ -11,18 +11,11 @@ int Football::difference() const {
     return abs(points_for - points_against);
 }
 
-std::optional<int> Football::anInt(const std::string &points) {
-    if (is_number(points)) {
-        return stoi(points);
-    }
-    return {}; // Empty optional.
-}
-
 std::optional<Football>
 Football::anOptionalFootball(const std::string &name, const std::string &points_for,
                              const std::string &points_against) {
-    auto for_optional = anInt(points_for);
-    auto against_optional = anInt(points_against);
+    auto for_optional = an_int(points_for);
+    auto against_optional = an_int(points_against);
 
     if (for_optional.has_value() && against_optional.has_value()) {
         return {{name, for_optional.value(), against_optional.value()}};

@@ -16,8 +16,6 @@ private:
 
     WeatherData(int day, int min, int max);
 
-    static std::optional<int> anInt(const std::string &day);
-
 public:
     int label() const override;
 

@@ -16,8 +16,6 @@ private:
 
     Football(const std::string &name, int points_for, int points_against);
 
-    static std::optional<int> anInt(const std::string &string);
-
 public:
     std::string label() const override;
 
